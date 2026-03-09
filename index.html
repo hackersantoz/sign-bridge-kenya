@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Bridge Kenya | Where Hands Speak, Everyone Belongs</title>
+    <link rel="icon" href="photos/logo.jpg" type="image/jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #fafafa;
+            color: #1e1e2a;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Normal cursor - removed custom cursor */
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e1e2a;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            color: #2563eb;
+            font-size: 0.85rem;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #1e1e2a;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon {
+            color: #4b5563;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .search-icon:hover {
+            color: #2563eb;
+        }
+
+        .search-input {
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            padding: 0.5rem 1rem;
+            border: 2px solid #2563eb;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: width 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            white-space: nowrap;
+            background: white;
+        }
+
+        .search-input.active {
+            width: 250px;
+            opacity: 1;
+            visibility: visible;
+            margin-right: 10px;
+        }
+
+        .menu-btn {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .menu-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 5% 3rem;
+            background: linear-gradient(135deg, #fafafa 0%, #e8f0fe 100%);
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-subtitle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle i {
+            font-size: 1.8rem;
+            color: #2563eb;
+        }
+
+        .hero-subtitle span {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2563eb;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title .highlight {
+            color: #2563eb;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            max-width: 550px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary, .whatsapp-btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        /* Profile Section */
+        .profile {
+            padding: 4rem 5%;
+            background: white;
+        }
+
+        .profile-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-image {
+            position: relative;
+        }
+
+        .profile-image-placeholder {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #e8f0fe, #dbeafe);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+
+        .profile-image-placeholder p {
+            font-size: 0.9rem;
+            color: #4b5563;
+            margin-top: 0.5rem;
+        }
+
+        .profile-badge {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .profile-content h2 {
+            font-size: 2rem;
+            margin-bottom: 0.3rem;
+            color: #1e1e2a;
+        }
+
+        .profile-title {
+            font-size: 1rem;
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .profile-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .profile-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #4b5563;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            width: 35px;
+            height: 35px;
+            background: #e8f0fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+        }
+
+        /* Vision & Mission */
+        .vision-mission {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .vm-card {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+        }
+
+        .vm-title {
+            font-size: 1.1rem;
+            color: #2563eb;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .vm-text {
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .vision-mission {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 4rem 5%;
+            background: #fafafa;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-subtitle {
+            color: #2563eb;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1e1e2a;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(37, 99, 235, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .gallery-overlay i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .gallery-placeholder {
+            background: linear-gradient(135deg, #e8f0fe, #dbeafe);
+            border-radius: 15px;
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+            font-size: 2rem;
+            cursor: pointer;
+            border: 2px dashed #2563eb;
+        }
+
+        .gallery-placeholder p {
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            color: #4b5563;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 5%;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #fafafa;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #e8f0fe, #dbeafe);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: #2563eb;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #1e1e2a;
+        }
+
+        .service-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+            font-size: 0.9rem;
+        }
+
+        .service-features i {
+            color: #2563eb;
+            font-size: 0.8rem;
+        }
+
+        .service-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Specializations */
+        .specializations {
+            padding: 4rem 5%;
+            background: #fafafa;
+        }
+
+        .specializations-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .spec-card {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .spec-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .spec-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1e1e2a;
+        }
+
+        .spec-description {
+            color: #6b7280;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .spec-whatsapp {
+            display: inline-block;
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, #fafafa, #e8f0fe);
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1e1e2a;
+        }
+
+        .contact-info p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .detail-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .detail-content h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: #1e1e2a;
+        }
+
+        .detail-content p {
+            margin-bottom: 0;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            background: #fafafa;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .form-btn {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-sms {
+            background: #4b5563;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e1e2a;
+            color: white;
+            padding: 3rem 5% 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .footer-logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-logo-text span {
+            color: #2563eb;
+            font-size: 0.75rem;
+            display: block;
+        }
+
+        .footer-description {
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .social-link {
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: #2563eb;
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: #2563eb;
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+            z-index: 99;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 3rem; }
+            .hero-tagline { font-size: 1.3rem; }
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+            .specializations-container { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            body { font-size: 15px; }
+            
+            .nav-links { display: none; }
+            
+            .hero { padding-top: 5rem; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-tagline { font-size: 1.2rem; }
+            .hero-buttons { flex-direction: column; }
+            
+            .profile-container { 
+                grid-template-columns: 1fr; 
+                padding: 1.5rem;
+            }
+            
+            .profile-image { max-width: 250px; margin: 0 auto; }
+            
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            .services-grid { grid-template-columns: 1fr; }
+            
+            .specializations-container { grid-template-columns: 1fr; }
+            
+            .contact-container { grid-template-columns: 1fr; }
+            
+            .footer-container { grid-template-columns: 1fr; gap: 2rem; }
+            
+            .form-buttons { flex-direction: column; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 2rem; }
+            .hero-tagline { font-size: 1.1rem; }
+            .section-title { font-size: 1.8rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/254798151534?text=Hello%20Rachael,%20I%20would%20like%20to%20inquire%20about%20your%20sign%20language%20interpretation%20services" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <img src="photos/logo.jpg" alt="Sign Bridge Kenya Logo" class="logo-icon">
+            <div class="logo-text">
+                Sign Bridge
+                <span>KENYA</span>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#profile">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-right">
+            <div class="search-container">
+                <i class="fas fa-search search-icon" id="searchIcon"></i>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search services...">
+            </div>
+            <a href="https://wa.me/254798151534?text=Hello%20Rachael,%20I%20would%20like%20to%20book%20your%20interpretation%20services" target="_blank" style="text-decoration: none;">
+                <button class="menu-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    Book via WhatsApp
+                </button>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">
+                <i class="fas fa-hands"></i>
+                <span>WELCOME TO SIGN BRIDGE KENYA</span>
+            </div>
+            <h1 class="hero-title">
+                Where Hands Speak,<br>
+                <span class="highlight">Everyone Belongs</span>
+            </h1>
+            <div class="hero-tagline">
+                Bridging Deaf & Hearing Communication
+            </div>
+            <p class="hero-description">
+                Professional sign language interpretation services in Kenya. 
+                Making communication accessible for all.
+            </p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/254798151534?text=Hello%20Rachael,%20I%20would%20like%20to%20request%20sign%20language%20interpretation%20services" target="_blank" class="btn-primary">
+                    <i class="fab fa-whatsapp"></i>
+                    Request via WhatsApp
+                </a>
+                <a href="sms:+254798151534?body=Hello Rachael, I would like to inquire about your sign language interpretation services" class="btn-secondary">
+                    <i class="fas fa-sms"></i>
+                    Send SMS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="profile">
+        <div class="profile-container">
+            <div class="profile-image">
+                <img src="photos/prof photo.jpg" alt="Rachael Karanja - Professional Photo" class="profile-image-placeholder" style="object-fit: contain;">
+                <div class="profile-badge">
+                    <i class="fas fa-hand-peace"></i>
+                </div>
+            </div>
+            <div class="profile-content">
+                <h2>Rachael Karanja</h2>
+                <div class="profile-title">
+                    Social Worker & Kenya Sign Language Interpreter
+                </div>
+                <p class="profile-description">
+                    Dedicated to creating inclusive environments where deaf and hearing individuals 
+                    can communicate effectively. Passionate about bridging communities through 
+                    professional sign language interpretation.
+                </p>
+                <div class="vision-mission" aria-label="Vision and Mission">
+                    <div class="vm-card">
+                        <h3 class="vm-title">Our Vision</h3>
+                        <p class="vm-text">To create an inclusive Kenya where accessible communication empowers every individual to participate fully in society.</p>
+                    </div>
+                    <div class="vm-card">
+                        <h3 class="vm-title">Our Mission</h3>
+                        <p class="vm-text">Provide professional, compassionate sign language interpretation and advocacy that bridges communication gaps, raises awareness, and supports equal opportunities.</p>
+                    </div>
+                </div>
+                <div class="profile-contact">
+                    <a href="tel:+254798151534" class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+254 798 151 534</span>
+                    </a>
+                    <a href="mailto:rachaelw436@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>rachaelw436@gmail.com</span>
+                    </a>
+                    <a href="https://wa.me/254798151534" target="_blank" class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Chat on WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="section-header">
+            <div class="section-subtitle">OUR WORK</div>
+            <h2 class="section-title">Moments That Matter</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="photos/WhatsApp Image 2026-03-01 at 10.46.43 AM.jpeg" alt="Interpretation Session">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="photos/WhatsApp Image 2026-03-01 at 10.53.16 AM.jpeg" alt="Community Event">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="photos/WhatsApp Image 2026-03-01 at 10.46.42 AM.jpeg" alt="Workshop">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="photos/WhatsApp Image 2026-03-01 at 11.10.47 AM.jpeg" alt="Workshop">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+           
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <div class="section-subtitle">OUR SERVICES</div>
+            <h2 class="section-title">Professional Interpretation Services</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hands"></i>
+                </div>
+                <h3 class="service-title">Sign Language Interpretation</h3>
+                <p class="service-description">
+                    Professional sign language interpretation for various settings.
+                </p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> One-on-one sessions</li>
+                    <li><i class="fas fa-check"></i> Group sessions</li>
+                    <li><i class="fas fa-check"></i> Remote interpretation</li>
+                </ul>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <a href="https://wa.me/254798151534?text=Hello%20Rachael,%20I%20need%20sign%20language%20interpretation%20services" target="_blank" class="service-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="sms:+254798151534?body=Hello Rachael, I need sign language interpretation services" class="service-whatsapp" style="background: #4b5563;">
+                        <i class="fas fa-sms"></i> SMS
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <h3 class="service-title">Medical & Legal</h3>
+                <p class="service-description">
+                    Confidential interpretation for sensitive consultations.
+                </p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Hospital appointments</li>
+                    <li><i class="fas fa-check"></i> Court proceedings</li>
+                    <li><i class="fas fa-check"></i> Private consultations</li>
+                </ul>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <a href="https://wa.me/254798151534?text=Hello%20Rachael,%20I%20need%20medical%20or%20legal%20interpretation%20services" target="_blank" class="service-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="sms:+254798151534?body=Hello Rachael, I need medical or legal interpretation services" class="service-whatsapp" style="background: #4b5563;">
+                        <i class="fas fa-sms"></i> SMS
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3 class="service-title">Event & Conference</h3>
+                <p class="service-description">
+                    On-site and online interpretation for events.
+                </p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Corporate events</li>
+                    <li><i class="fas fa-check"></i> Public conferences</li>
+                    <li><i class="fas fa-check"></i> Virtual meetings</li>
+                </ul>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <a href="https://wa.me/254798151534?text=Hello%20Rachael,%20I%20need%20interpretation%20for%20an%20event" target="_blank" class="service-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="sms:+254798151534?body=Hello Rachael, I need interpretation for an event" class="service-whatsapp" style="background: #4b5563;">
+                        <i class="fas fa-sms"></i> SMS
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3 class="service-title">Educational Support</h3>
+                <p class="service-description">
+                    Creating inclusive learning environments.
+                </p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Classroom interpretation</li>
+                    <li><i class="fas fa-check"></i> Workplace meetings</li>
+                    <li><i class="fas fa-check"></i> Training sessions</li>
+                </ul>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <a href="https://wa.me/254798151534?text=Hello%20Rachael,%20I%20need%20educational%20interpretation%20support" target="_blank" class="service-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="sms:+254798151534?body=Hello Rachael, I need educational interpretation support" class="service-whatsapp" style="background: #4b5563;">
+                        <i class="fas fa-sms"></i> SMS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specializations Section -->
+    <section id="specializations" class="specializations">
+        <div class="section-header">
+            <div class="section-subtitle">AREAS OF EXPERTISE</div>
+            <h2 class="section-title">Specialized Interpretation</h2>
+        </div>
+        <div class="specializations-container">
+            <div class="spec-card">
+                <div class="spec-icon">
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <h3 class="spec-title">Medical</h3>
+                <p class="spec-description">
+                    Hospitals, clinics, medical consultations
+                </p>
+                <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/254798151534?text=Hello%20Rachael,%20I%20need%20medical%20interpretation" target="_blank" class="spec-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="sms:+254798151534?body=Hello Rachael, I need medical interpretation" class="spec-whatsapp" style="color: #4b5563;">
+                        <i class="fas fa-sms"></i> SMS
+                    </a>
+                </div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <h3 class="spec-title">Legal</h3>
+                <p class="spec-description">
+                    Court proceedings, lawyer consultations
+                </p>
+                <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/254798151534?text=Hello%20Rachael,%20I%20need%20legal%20interpretation" target="_blank" class="spec-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="sms:+254798151534?body=Hello Rachael, I need legal interpretation" class="spec-whatsapp" style="color: #4b5563;">
+                        <i class="fas fa-sms"></i> SMS
+                    </a>
+                </div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3 class="spec-title">Educational</h3>
+                <p class="spec-description">
+                    Schools, universities, workshops
+                </p>
+                <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/254798151534?text=Hello%20Rachael,%20I%20need%20educational%20interpretation" target="_blank" class="spec-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="sms:+254798151534?body=Hello Rachael, I need educational interpretation" class="spec-whatsapp" style="color: #4b5563;">
+                        <i class="fas fa-sms"></i> SMS
+                    </a>
+                </div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="spec-title">Corporate</h3>
+                <p class="spec-description">
+                    Business meetings, conferences
+                </p>
+                <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/254798151534?text=Hello%20Rachael,%20I%20need%20corporate%20interpretation" target="_blank" class="spec-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="sms:+254798151534?body=Hello Rachael, I need corporate interpretation" class="spec-whatsapp" style="color: #4b5563;">
+                        <i class="fas fa-sms"></i> SMS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Let's Bridge Communication Together</h2>
+                <p>
+                    Need professional sign language interpretation services? 
+                    Choose your preferred way to reach out:
+                </p>
+                <div class="contact-details">
+                    <div class="contact-detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="detail-content">
+                            <h4>Call</h4>
+                            <p>+254 798 151 534</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="detail-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="detail-content">
+                            <h4>WhatsApp</h4>
+                            <p>+254 798 151 534</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-sms"></i>
+                        </div>
+                        <div class="detail-content">
+                            <h4>SMS</h4>
+                            <p>+254 798 151 534</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required id="name">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Your Phone Number" required id="phone">
+                    </div>
+                    <div class="form-group">
+                        <select required id="service">
+                            <option value="" disabled selected>Select Service Type</option>
+                            <option>Sign Language Interpretation</option>
+                            <option>Medical Interpretation</option>
+                            <option>Legal Interpretation</option>
+                            <option>Event Interpretation</option>
+                            <option>Educational Support</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Tell us about your interpretation needs..." required id="message"></textarea>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="form-btn btn-whatsapp" onclick="sendViaWhatsApp()">
+                            <i class="fab fa-whatsapp"></i>
+                            Send via WhatsApp
+                        </button>
+                        <button type="button" class="form-btn btn-sms" onclick="sendViaSMS()">
+                            <i class="fas fa-sms"></i>
+                            Send via SMS
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="photos/logo.jpg" alt="Sign Bridge Kenya Logo" class="footer-logo-icon">
+                    <div class="footer-logo-text">
+                        Sign Bridge
+                        <span>KENYA</span>
+                    </div>
+                </div>
+                <p class="footer-description">
+                    Where Hands Speak, Everyone Belongs. Professional sign language 
+                    interpretation services across Kenya.
+                </p>
+                <div class="footer-social">
+                    <a href="#" target="_blank" class="social-link" onclick="alert('Add your Facebook link here')"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="social-link" onclick="alert('Add your Twitter link here')"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" class="social-link" onclick="alert('Add your Instagram link here')"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="social-link" onclick="alert('Add your LinkedIn link here')"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/254798151534" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#profile">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:+254798151534">Call: +254 798 151 534</a></li>
+                    <li><a href="https://wa.me/254798151534">WhatsApp: +254 798 151 534</a></li>
+                    <li><a href="sms:+254798151534">SMS: +254 798 151 534</a></li>
+                    <li><a href="mailto:rachaelw436@gmail.com">Email: rachaelw436@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Hours</h4>
+                <ul class="footer-links">
+                    <li>Mon-Fri: 8am - 6pm</li>
+                    <li>Saturday: 9am - 2pm</li>
+                    <li>Sunday: Closed</li>
+                    <li>Emergency: 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sign Bridge Kenya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Search functionality - FIXED
+        const searchIcon = document.getElementById('searchIcon');
+        const searchInput = document.getElementById('searchInput');
+
+        searchIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            searchInput.classList.toggle('active');
+            if (searchInput.classList.contains('active')) {
+                searchInput.focus();
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!searchIcon.contains(e.target) && !searchInput.contains(e.target)) {
+                searchInput.classList.remove('active');
+            }
+        });
+
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const searchTerm = this.value.toLowerCase();
+                let message = '';
+                
+                if (searchTerm.includes('medical')) {
+                    message = 'Hello Rachael, I am interested in medical interpretation services';
+                } else if (searchTerm.includes('legal')) {
+                    message = 'Hello Rachael, I am interested in legal interpretation services';
+                } else if (searchTerm.includes('event')) {
+                    message = 'Hello Rachael, I am interested in event interpretation services';
+                } else if (searchTerm.includes('education')) {
+                    message = 'Hello Rachael, I am interested in educational interpretation services';
+                } else {
+                    message = `Hello Rachael, I am interested in ${searchTerm} services`;
+                }
+                
+                window.open(`https://wa.me/254798151534?text=${encodeURIComponent(message)}`, '_blank');
+                this.value = '';
+                this.classList.remove('active');
+            }
+        });
+
+        // Send via WhatsApp function
+        function sendViaWhatsApp() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !phone || !service || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            const whatsappMessage = `Hello Rachael,%0A%0A` +
+                `New Inquiry:%0A` +
+                `Name: ${name}%0A` +
+                `Phone: ${phone}%0A` +
+                `Service: ${service}%0A` +
+                `Message: ${message}`;
+            
+            window.open(`https://wa.me/254798151534?text=${whatsappMessage}`, '_blank');
+        }
+
+        // Send via SMS function
+        function sendViaSMS() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !phone || !service || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            const smsMessage = `Hello Rachael, New inquiry from ${name} (${phone}) for ${service}: ${message}`;
+            
+            window.location.href = `sms:+254798151534?body=${encodeURIComponent(smsMessage)}`;
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Date input min value
+        const dateInput = document.querySelector('input[type="date"]');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+        }
+
+        // Gallery item click
+        const galleryItems = document.querySelectorAll('.gallery-item:not(.gallery-placeholder)');
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const imgSrc = this.querySelector('img').src;
+                window.open(imgSrc, '_blank');
+            });
+        });
+
+        // Profile photo upload simulation
+        const profilePhoto = document.querySelector('.profile-image-placeholder');
+        if (profilePhoto) {
+            profilePhoto.addEventListener('click', () => {
+                alert('Click to upload your professional photo here');
+            });
+        }
+    </script>
+</body>
+</html>
